@@ -1,0 +1,1777 @@
+```html
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>OVA | Ruta de Grado UTS 2026</title>
+
+    <!-- =====================================================
+         ICONOS
+    ====================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =====================================================
+           VARIABLES
+        ====================================================== */
+
+      :root {
+        --uts-blue: #b6ed36;
+        --uts-blue-dark: #003f7d;
+        --uts-blue-light: #eaf4ff;
+
+        --uts-yellow: #f7c600;
+        --uts-yellow-light: #fff8d9;
+
+        --white: #ffffff;
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-400: #94a3b8;
+        --gray-600: #475569;
+        --gray-800: #1e293b;
+        --gray-900: #0f172a;
+
+        --success: #16a34a;
+        --danger: #dc2626;
+
+        --shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+        --shadow-hover: 0 18px 40px rgba(15, 23, 42, 0.16);
+
+        --radius: 18px;
+      }
+
+      /* =====================================================
+           RESET
+        ====================================================== */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", Arial, sans-serif;
+        background: var(--gray-50);
+        color: var(--gray-800);
+        line-height: 1.6;
+      }
+
+      button,
+      a {
+        font-family: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      /* =====================================================
+           HEADER
+        ====================================================== */
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 72px;
+
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(10px);
+
+        border-bottom: 1px solid var(--gray-200);
+
+        display: flex;
+        align-items: center;
+
+        z-index: 1000;
+      }
+
+      .header-container {
+        width: min(1200px, 92%);
+        margin: auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      /* LOGO */
+
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo-placeholder {
+        width: 46px;
+        height: 46px;
+
+        border-radius: 10px;
+
+        background: var(--uts-blue);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: white;
+        font-size: 11px;
+        font-weight: 800;
+
+        text-align: center;
+      }
+
+      .logo-text strong {
+        display: block;
+        color: var(--uts-blue);
+        font-size: 15px;
+      }
+
+      .logo-text span {
+        font-size: 11px;
+        color: var(--gray-600);
+      }
+
+      /* NAV */
+
+      nav {
+        display: flex;
+        gap: 4px;
+      }
+
+      nav button {
+        border: none;
+        background: transparent;
+
+        padding: 8px 11px;
+
+        color: var(--gray-600);
+        font-size: 12px;
+        font-weight: 600;
+
+        border-radius: 8px;
+
+        transition: 0.2s;
+      }
+
+      nav button:hover,
+      nav button.active {
+        background: var(--uts-blue-light);
+        color: var(--uts-blue);
+      }
+
+      .menu-mobile {
+        display: none;
+
+        border: none;
+        background: var(--uts-blue);
+
+        color: white;
+
+        width: 42px;
+        height: 42px;
+
+        border-radius: 10px;
+      }
+
+      /* =====================================================
+           PROGRESS BAR
+        ====================================================== */
+
+      .progress-container {
+        position: fixed;
+        top: 72px;
+        left: 0;
+
+        width: 100%;
+        height: 4px;
+
+        background: var(--gray-200);
+
+        z-index: 999;
+      }
+
+      .progress-bar {
+        width: 0%;
+        height: 100%;
+
+        background: linear-gradient(90deg, var(--uts-blue), var(--uts-yellow));
+
+        transition: width 0.4s;
+      }
+
+      /* =====================================================
+           HERO
+        ====================================================== */
+
+      .hero {
+        min-height: 100vh;
+
+        padding: 150px 20px 80px;
+
+        display: flex;
+        align-items: center;
+
+        background:
+          radial-gradient(
+            circle at 85% 20%,
+            rgba(247, 198, 0, 0.2),
+            transparent 30%
+          ),
+          linear-gradient(135deg, #ffffff, #edf6ff);
+      }
+
+      .hero-container {
+        width: min(1150px, 92%);
+        margin: auto;
+
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 70px;
+
+        align-items: center;
+      }
+
+      .badge {
+        display: inline-flex;
+
+        padding: 7px 13px;
+
+        border-radius: 30px;
+
+        background: var(--uts-yellow-light);
+        color: #806700;
+
+        font-size: 12px;
+        font-weight: 700;
+
+        margin-bottom: 20px;
+      }
+
+      .hero h1 {
+        font-size: clamp(38px, 6vw, 68px);
+
+        line-height: 1.05;
+
+        color: var(--gray-900);
+
+        margin-bottom: 20px;
+      }
+
+      .hero h1 span {
+        color: var(--uts-blue);
+      }
+
+      .hero p {
+        color: var(--gray-600);
+
+        font-size: 17px;
+
+        max-width: 650px;
+
+        margin-bottom: 30px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .btn {
+        border: none;
+
+        padding: 13px 22px;
+
+        border-radius: 10px;
+
+        font-weight: 700;
+
+        transition: 0.25s;
+      }
+
+      .btn-primary {
+        background: var(--uts-blue);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: var(--uts-blue-dark);
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background: white;
+        color: var(--uts-blue);
+
+        border: 1px solid var(--gray-200);
+      }
+
+      .btn-secondary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+
+      /* HERO CARD */
+
+      .hero-card {
+        background: white;
+
+        border-radius: 25px;
+
+        padding: 30px;
+
+        box-shadow: var(--shadow);
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .hero-card::before {
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 7px;
+
+        background: linear-gradient(
+          90deg,
+          var(--uts-blue) 70%,
+          var(--uts-yellow) 70%
+        );
+      }
+
+      .hero-card-title {
+        margin-bottom: 20px;
+
+        color: var(--gray-900);
+
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      .mini-step {
+        display: flex;
+
+        align-items: center;
+
+        gap: 13px;
+
+        padding: 13px 0;
+
+        border-bottom: 1px solid var(--gray-100);
+      }
+
+      .mini-step:last-child {
+        border-bottom: none;
+      }
+
+      .mini-number {
+        width: 34px;
+        height: 34px;
+
+        flex-shrink: 0;
+
+        border-radius: 50%;
+
+        background: var(--uts-blue-light);
+        color: var(--uts-blue);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .mini-step span {
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      /* =====================================================
+           GENERAL SECTIONS
+        ====================================================== */
+
+      section {
+        padding: 90px 20px;
+      }
+
+      .section-container {
+        width: min(1150px, 92%);
+        margin: auto;
+      }
+
+      .section-header {
+        text-align: center;
+
+        max-width: 750px;
+
+        margin: 0 auto 50px;
+      }
+
+      .section-label {
+        color: var(--uts-blue);
+
+        font-size: 12px;
+
+        font-weight: 800;
+
+        text-transform: uppercase;
+
+        letter-spacing: 1.5px;
+
+        margin-bottom: 10px;
+      }
+
+      .section-header h2 {
+        color: var(--gray-900);
+
+        font-size: clamp(28px, 4vw, 42px);
+
+        margin-bottom: 12px;
+      }
+
+      .section-header p {
+        color: var(--gray-600);
+      }
+
+      /* =====================================================
+           INTRO
+        ====================================================== */
+
+      .intro-grid {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 20px;
+      }
+
+      .info-card {
+        background: white;
+
+        border: 1px solid var(--gray-200);
+
+        border-radius: var(--radius);
+
+        padding: 27px;
+
+        transition: 0.25s;
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+
+        box-shadow: var(--shadow-hover);
+      }
+
+      .info-icon {
+        width: 48px;
+        height: 48px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 13px;
+
+        background: var(--uts-blue-light);
+
+        color: var(--uts-blue);
+
+        font-size: 22px;
+
+        margin-bottom: 18px;
+      }
+
+      .info-card h3 {
+        color: var(--gray-900);
+
+        margin-bottom: 8px;
+
+        font-size: 17px;
+      }
+
+      .info-card p {
+        color: var(--gray-600);
+
+        font-size: 14px;
+      }
+
+      /* =====================================================
+           TIMELINE
+        ====================================================== */
+
+      .timeline {
+        position: relative;
+
+        max-width: 850px;
+
+        margin: auto;
+      }
+
+      .timeline::before {
+        content: "";
+
+        position: absolute;
+
+        left: 25px;
+        top: 0;
+        bottom: 0;
+
+        width: 2px;
+
+        background: var(--gray-200);
+      }
+
+      .timeline-item {
+        position: relative;
+
+        display: flex;
+
+        gap: 25px;
+
+        margin-bottom: 25px;
+      }
+
+      .timeline-dot {
+        position: relative;
+
+        z-index: 2;
+
+        width: 52px;
+        height: 52px;
+
+        flex-shrink: 0;
+
+        border-radius: 50%;
+
+        background: var(--uts-blue);
+
+        color: white;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 13px;
+
+        font-weight: 800;
+
+        box-shadow: 0 0 0 6px var(--gray-50);
+      }
+
+      .timeline-content {
+        background: white;
+
+        border: 1px solid var(--gray-200);
+
+        border-radius: var(--radius);
+
+        padding: 22px;
+
+        flex: 1;
+
+        box-shadow: 0 5px 18px rgba(15, 23, 42, 0.04);
+      }
+
+      .timeline-content .date {
+        color: var(--uts-blue);
+
+        font-size: 12px;
+
+        font-weight: 800;
+
+        text-transform: uppercase;
+      }
+
+      .timeline-content h3 {
+        color: var(--gray-900);
+
+        margin: 4px 0 7px;
+
+        font-size: 18px;
+      }
+
+      .timeline-content p {
+        color: var(--gray-600);
+
+        font-size: 14px;
+      }
+
+      /* =====================================================
+           REQUIREMENTS
+        ====================================================== */
+
+      .requirements-grid {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 20px;
+      }
+
+      .requirement {
+        background: white;
+
+        padding: 25px;
+
+        border-radius: var(--radius);
+
+        border: 1px solid var(--gray-200);
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .requirement::after {
+        content: "";
+
+        position: absolute;
+
+        right: -25px;
+        top: -25px;
+
+        width: 80px;
+        height: 80px;
+
+        background: var(--uts-yellow);
+
+        opacity: 0.15;
+
+        border-radius: 50%;
+      }
+
+      .requirement-number {
+        color: var(--uts-blue);
+
+        font-size: 12px;
+
+        font-weight: 800;
+
+        margin-bottom: 8px;
+      }
+
+      .requirement h3 {
+        font-size: 17px;
+
+        margin-bottom: 8px;
+
+        color: var(--gray-900);
+      }
+
+      .requirement p {
+        font-size: 14px;
+
+        color: var(--gray-600);
+      }
+
+      /* =====================================================
+           DOCUMENTS
+        ====================================================== */
+
+      .documents {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 18px;
+      }
+
+      .document-card {
+        background: white;
+
+        border: 1px solid var(--gray-200);
+
+        border-radius: 15px;
+
+        padding: 20px;
+
+        display: flex;
+
+        gap: 15px;
+
+        align-items: flex-start;
+
+        transition: 0.2s;
+      }
+
+      .document-card:hover {
+        border-color: var(--uts-blue);
+
+        box-shadow: var(--shadow);
+      }
+
+      .document-icon {
+        width: 42px;
+        height: 42px;
+
+        flex-shrink: 0;
+
+        border-radius: 10px;
+
+        background: var(--uts-blue-light);
+
+        color: var(--uts-blue);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-weight: 800;
+      }
+
+      .document-card h3 {
+        color: var(--gray-900);
+
+        font-size: 15px;
+
+        margin-bottom: 5px;
+      }
+
+      .document-card p {
+        color: var(--gray-600);
+
+        font-size: 13px;
+      }
+
+      /* =====================================================
+           ALERT
+        ====================================================== */
+
+      .alert {
+        margin-top: 25px;
+
+        background: var(--uts-yellow-light);
+
+        border-left: 5px solid var(--uts-yellow);
+
+        border-radius: 10px;
+
+        padding: 18px 20px;
+
+        color: #5f4e00;
+
+        font-size: 14px;
+      }
+
+      .alert strong {
+        display: block;
+
+        margin-bottom: 4px;
+      }
+
+      /* =====================================================
+           CHECKLIST
+        ====================================================== */
+
+      .checklist-container {
+        max-width: 800px;
+
+        margin: auto;
+      }
+
+      .checklist-progress {
+        background: white;
+
+        padding: 22px;
+
+        border-radius: var(--radius);
+
+        border: 1px solid var(--gray-200);
+
+        margin-bottom: 20px;
+      }
+
+      .progress-info {
+        display: flex;
+
+        justify-content: space-between;
+
+        font-size: 13px;
+
+        font-weight: 700;
+
+        margin-bottom: 10px;
+      }
+
+      .check-progress-bar {
+        width: 100%;
+
+        height: 10px;
+
+        background: var(--gray-200);
+
+        border-radius: 10px;
+
+        overflow: hidden;
+      }
+
+      .check-progress-fill {
+        width: 0%;
+
+        height: 100%;
+
+        background: var(--uts-blue);
+
+        transition: 0.4s;
+      }
+
+      .check-item {
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        background: white;
+
+        border: 1px solid var(--gray-200);
+
+        padding: 17px;
+
+        border-radius: 12px;
+
+        margin-bottom: 10px;
+
+        cursor: pointer;
+
+        transition: 0.2s;
+      }
+
+      .check-item:hover {
+        border-color: var(--uts-blue);
+      }
+
+      .check-item input {
+        width: 19px;
+        height: 19px;
+
+        accent-color: var(--uts-blue);
+      }
+
+      .check-item.checked {
+        background: #f0fdf4;
+
+        border-color: #86efac;
+      }
+
+      .check-item.checked label {
+        text-decoration: line-through;
+
+        color: var(--gray-400);
+      }
+
+      .check-item label {
+        font-size: 14px;
+
+        font-weight: 600;
+
+        cursor: pointer;
+      }
+
+      /* =====================================================
+           FOOTER
+        ====================================================== */
+
+      footer {
+        background: var(--gray-900);
+
+        color: white;
+
+        padding: 45px 20px;
+      }
+
+      .footer-container {
+        width: min(1150px, 92%);
+
+        margin: auto;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 30px;
+
+        flex-wrap: wrap;
+      }
+
+      footer h3 {
+        margin-bottom: 7px;
+      }
+
+      footer p {
+        color: #94a3b8;
+
+        font-size: 13px;
+      }
+
+      .footer-note {
+        text-align: center;
+
+        margin-top: 35px;
+
+        padding-top: 20px;
+
+        border-top: 1px solid #334155;
+
+        color: #64748b;
+
+        font-size: 11px;
+      }
+
+      /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+      @media (max-width: 900px) {
+        nav {
+          display: none;
+
+          position: absolute;
+
+          top: 72px;
+          left: 0;
+
+          width: 100%;
+
+          background: white;
+
+          padding: 15px;
+
+          box-shadow: var(--shadow);
+
+          flex-direction: column;
+        }
+
+        nav.show {
+          display: flex;
+        }
+
+        nav button {
+          text-align: left;
+
+          padding: 12px;
+        }
+
+        .menu-mobile {
+          display: block;
+        }
+
+        .hero-container {
+          grid-template-columns: 1fr;
+        }
+
+        .intro-grid,
+        .requirements-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero {
+          padding-top: 130px;
+        }
+
+        .hero h1 {
+          font-size: 40px;
+        }
+
+        .intro-grid,
+        .requirements-grid,
+        .documents {
+          grid-template-columns: 1fr;
+        }
+
+        section {
+          padding: 70px 15px;
+        }
+
+        .section-container {
+          width: 95%;
+        }
+
+        .hero-card {
+          padding: 22px;
+        }
+
+        .timeline-item {
+          gap: 15px;
+        }
+
+        .timeline-dot {
+          width: 42px;
+          height: 42px;
+        }
+
+        .timeline::before {
+          left: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================================================
+     HEADER
+========================================================== -->
+
+    <header>
+      <div class="header-container">
+        <div class="logo-area">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3VRY29CRk7LJcERMcFUsxMS6i41bLDRFHTHgkisF-zQ&s=10"
+            alt="Logo UTS"
+            height="80"
+            width="120"
+          />
+
+          <div class="logo-text">
+            <strong>UTS</strong>
+            <span>Ruta de Grado 2026</span>
+          </div>
+        </div>
+
+        <nav id="mainNav">
+          <button onclick="irA('inicio')">Inicio</button>
+          <button onclick="irA('requisitos')">Requisitos</button>
+          <button onclick="irA('fechas')">Fechas</button>
+          <button onclick="irA('documentos')">Documentos</button>
+        </nav>
+
+        <button class="menu-mobile" onclick="toggleMenu()">☰</button>
+      </div>
+    </header>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- =========================================================
+     HERO
+========================================================== -->
+
+    <section class="hero" id="inicio">
+      <div class="hero-container">
+        <div>
+          <span class="badge"> OBJETO VIRTUAL DE APRENDIZAJE </span>
+
+          <h1>Ruta de <span>Grado</span> UTS 2026</h1>
+
+          <p>
+            Guía interactiva para conocer los requisitos, fechas, documentos y
+            pasos necesarios para realizar correctamente el proceso de grado.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="irA('requisitos')">
+              Iniciar recorrido →
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-title">Tu ruta de grado</div>
+
+          <div class="mini-step">
+            <div class="mini-number">01</div>
+            <span>Verifica tus requisitos académicos</span>
+          </div>
+
+          <div class="mini-step">
+            <div class="mini-number">02</div>
+            <span>Revisa las fechas importantes</span>
+          </div>
+
+          <div class="mini-step">
+            <div class="mini-number">03</div>
+            <span>Prepara los documentos</span>
+          </div>
+
+          <div class="mini-step">
+            <div class="mini-number">04</div>
+            <span>Realiza los pagos correspondientes</span>
+          </div>
+
+          <div class="mini-step">
+            <div class="mini-number">05</div>
+            <span>Organiza y entrega la documentación</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+     INTRODUCCIÓN
+========================================================== -->
+
+    <section>
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-label">Antes de comenzar</div>
+
+          <h2>¿Qué encontrarás?</h2>
+
+          <p>
+            Recorre las diferentes etapas del proceso y verifica cada requisito
+            antes de entregar tus documentos.
+          </p>
+        </div>
+
+        <div class="intro-grid">
+          <div class="info-card">
+            <div class="info-icon">✓</div>
+
+            <h3>Requisitos</h3>
+
+            <p>
+              Conoce las condiciones académicas que debes cumplir antes de
+              iniciar el proceso.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">📅</div>
+
+            <h3>Fechas</h3>
+
+            <p>
+              Identifica las fechas importantes para la recepción y entrega de
+              documentos.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">📄</div>
+
+            <h3>Documentación</h3>
+
+            <p>
+              Revisa cómo deben diligenciarse, imprimirse y organizarse los
+              documentos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+     REQUISITOS
+========================================================== -->
+
+    <section id="requisitos">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-label">Paso 01</div>
+
+          <h2>Requisitos para graduarse</h2>
+
+          <p>
+            Antes de entregar los documentos, verifica que hayas cumplido las
+            condiciones académicas.
+          </p>
+        </div>
+
+        <div class="requirements-grid">
+          <div class="requirement">
+            <div class="requirement-number">REQUISITO 01</div>
+
+            <h3>100 % de créditos aprobados</h3>
+
+            <p>
+              La Coordinación verificará que el estudiante tenga aprobados todos
+              los créditos correspondientes a su programa académico.
+            </p>
+          </div>
+
+          <div class="requirement">
+            <div class="requirement-number">REQUISITO 02</div>
+
+            <h3>Proyecto de grado aprobado</h3>
+
+            <p>
+              El proyecto de grado debe encontrarse aprobado y cargado
+              correctamente en el repositorio correspondiente.
+            </p>
+          </div>
+
+          <div class="requirement">
+            <div class="requirement-number">REQUISITO 03</div>
+
+            <h3>Pruebas TYT o PRO</h3>
+
+            <p>
+              Se deben presentar los resultados oficiales de las pruebas
+              correspondientes.
+            </p>
+          </div>
+
+          <div class="requirement">
+            <div class="requirement-number">PUNTAJE MÍNIMO</div>
+
+            <h3>TYT: mínimo 80 puntos</h3>
+
+            <p>
+              Para quienes corresponda la prueba TYT, se requiere un resultado
+              mínimo de 80 puntos.
+            </p>
+          </div>
+
+          <div class="requirement">
+            <div class="requirement-number">PUNTAJE MÍNIMO</div>
+
+            <h3>PRO: mínimo 120 puntos</h3>
+
+            <p>
+              Para quienes corresponda la prueba PRO, se requiere un resultado
+              mínimo de 120 puntos.
+            </p>
+          </div>
+
+          <div class="requirement">
+            <div class="requirement-number">IMPORTANTE</div>
+
+            <h3>Resultados oficiales</h3>
+
+            <p>
+              No se aceptan certificados que solamente acrediten la presentación
+              de la prueba.
+            </p>
+          </div>
+        </div>
+
+        <div class="alert">
+          <strong>⚠ Importante</strong>
+
+          Si ya cumples todos los requisitos para graduarte, los documentos
+          pueden recibirse a partir del lunes 3 de agosto de 2026, teniendo
+          presente la fecha específica exigida para el formato F-AM-04.
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+     FECHAS
+========================================================== -->
+
+    <section id="fechas">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-label">Paso 02</div>
+
+          <h2>Fechas importantes</h2>
+
+          <p>
+            Ten presente las fechas relacionadas con la recepción de documentos
+            y ceremonias de grado.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot">03</div>
+
+            <div class="timeline-content">
+              <div class="date">3 de agosto de 2026</div>
+
+              <h3>Inicio de recepción</h3>
+
+              <p>
+                Si ya cumples todos los requisitos para graduarte, los
+                documentos podrán recibirse desde esta fecha.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">14</div>
+
+            <div class="timeline-content">
+              <div class="date">14 de septiembre de 2026</div>
+
+              <h3>Fecha del formato F-AM-04</h3>
+
+              <p>
+                El formato F-AM-04 versión 18.0 debe diligenciarse con fecha de
+                entrega a partir del 14 de septiembre de 2026.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">10</div>
+
+            <div class="timeline-content">
+              <div class="date">10 de octubre de 2026</div>
+
+              <h3>Fecha límite</h3>
+
+              <p>
+                Fecha límite para la recepción de los documentos de grado del
+                nivel tecnológico para quienes desean ingresar a Ingeniería en
+                el período 2027-1.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">10</div>
+
+            <div class="timeline-content">
+              <div class="date">10 de diciembre de 2026</div>
+
+              <h3>Ceremonia de grado</h3>
+
+              <p>
+                Ceremonia programada para quienes culminaron el programa de
+                Ingeniería y realizaron el proceso correspondiente.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">2027</div>
+
+            <div class="timeline-content">
+              <div class="date">Abril de 2027</div>
+
+              <h3>Alternativa de ceremonia</h3>
+
+              <p>
+                Para estudiantes de Tecnología que desean ingresar al programa
+                de Ingeniería en 2027-1, también se contempla estar inscritos
+                para la ceremonia de abril de 2027.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+     DOCUMENTOS
+========================================================== -->
+
+    <section id="documentos">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-label">Paso 03</div>
+
+          <h2>Documentos de grado</h2>
+
+          <p>
+            Revisa las principales condiciones para diligenciar y presentar la
+            documentación.
+          </p>
+        </div>
+
+        <div class="documents">
+          <div class="document-card">
+            <div class="document-icon">ID</div>
+
+            <div>
+              <h3>Cédula de ciudadanía</h3>
+
+              <p>
+                Presentarla ampliada al 150 %, a color, tamaño carta y
+                correctamente centrada.
+              </p>
+            </div>
+          </div>
+
+          <div class="document-card">
+            <div class="document-icon">01</div>
+
+            <div>
+              <h3>F-AM-04 versión 18.0</h3>
+
+              <p>
+                Utilizar fuente Arial tamaño 10. Debe contener la dirección
+                completa y quedar totalmente en una sola página.
+              </p>
+            </div>
+          </div>
+
+          <div class="document-card">
+            <div class="document-icon">02</div>
+
+            <div>
+              <h3>F-DC-130 versión 4.0</h3>
+
+              <p>
+                Debe incluir la fecha de aprobación del proyecto de grado y
+                quedar completamente en una sola página.
+              </p>
+            </div>
+          </div>
+
+          <div class="document-card">
+            <div class="document-icon">TYT</div>
+
+            <div>
+              <h3>Resultados oficiales TYT o PRO</h3>
+
+              <p>
+                Imprimir el documento completo. Pueden corresponder a 4 o 5
+                hojas según la prueba.
+              </p>
+            </div>
+          </div>
+
+          <div class="document-card">
+            <div class="document-icon">$</div>
+
+            <div>
+              <h3>Pagos</h3>
+
+              <p>
+                Los pagos de estampillas y derechos de grado deben realizarse
+                virtualmente y anexar los respectivos soportes.
+              </p>
+            </div>
+          </div>
+
+          <div class="document-card">
+            <div class="document-icon">RH</div>
+
+            <div>
+              <h3>Hoja de vida y encuestas</h3>
+
+              <p>
+                Las capturas deben organizarse e imprimirse en una sola hoja
+                según las indicaciones.
+              </p>
+            </div>
+          </div>
+
+          <div class="document-card">
+            <div class="document-icon">QR</div>
+
+            <div>
+              <h3>Repositorio</h3>
+
+              <p>
+                Imprimir en una sola hoja el pantallazo completo del repositorio
+                con toda la información cargada.
+              </p>
+            </div>
+          </div>
+
+          <div class="document-card">
+            <div class="document-icon">✓</div>
+
+            <div>
+              <h3>Hoja de entrega</h3>
+
+              <p>
+                Presentarla impresa en tamaño carta. Servirá como constancia de
+                recibido.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert">
+          <strong>Condiciones de impresión</strong>
+
+          Todos los documentos deben presentarse en físico, tamaño carta,
+          impresos a una sola cara y sin ganchos de grapa.
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+     PAGOS
+========================================================== -->
+
+    <section>
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-label">Paso 04</div>
+
+          <h2>Pagos y soportes</h2>
+
+          <p>
+            Los pagos correspondientes deben realizarse de forma virtual y
+            posteriormente deben anexarse los soportes.
+          </p>
+        </div>
+
+        <div class="intro-grid">
+          <div class="info-card">
+            <div class="info-icon">$</div>
+
+            <h3>Estampillas</h3>
+
+            <p>
+              Realiza el pago virtual y descarga los soportes generados por la
+              plataforma.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">$</div>
+
+            <h3>Derechos de grado</h3>
+
+            <p>
+              Realiza el pago virtual y conserva la confirmación
+              correspondiente.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">✉</div>
+
+            <h3>Confirmación bancaria</h3>
+
+            <p>
+              Anexa la confirmación de pago enviada por la entidad bancaria al
+              correo registrado.
+            </p>
+          </div>
+        </div>
+
+        <div class="alert">
+          <strong>Organización de estampillas</strong>
+
+          Las capturas correspondientes al pago de estampillas deben organizarse
+          e imprimirse en una sola hoja.
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+     FOOTER
+========================================================== -->
+
+    <footer>
+      <div class="footer-container">
+        <div>
+          <h3>Metodologia De La Investigacion 2</h3>
+
+          <p>Institucion Universidad Tecnológica de Santander</p>
+        </div>
+
+        <div>
+          <p>
+            Información organizada a partir de las indicaciones suministradas
+            para el proceso de grado 2026.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-note">UTS · 2026</div>
+    </footer>
+
+    <!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
+
+    <script>
+      /* =====================================================
+       NAVEGACIÓN
+    ====================================================== */
+
+      function irA(id) {
+        const elemento = document.getElementById(id);
+
+        if (elemento) {
+          elemento.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+
+        document.getElementById("mainNav").classList.remove("show");
+      }
+
+      /* =====================================================
+       MENÚ MOBILE
+    ====================================================== */
+
+      function toggleMenu() {
+        document.getElementById("mainNav").classList.toggle("show");
+      }
+
+      /* =====================================================
+       BARRA DE PROGRESO GENERAL
+    ====================================================== */
+
+      window.addEventListener("scroll", function () {
+        const scrollTop = window.scrollY;
+
+        const documentHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+
+        const percentage =
+          documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+
+        document.getElementById("progressBar").style.width = percentage + "%";
+      });
+
+      /* =====================================================
+       QUIZ
+    ====================================================== */
+
+      const questions = document.querySelectorAll(".quiz-question");
+
+      let currentQuestion = 0;
+
+      let score = 0;
+
+      let answered = false;
+
+      const options = document.querySelectorAll(".quiz-option");
+
+      options.forEach(function (option) {
+        option.addEventListener("click", function () {
+          if (answered) {
+            return;
+          }
+
+          answered = true;
+
+          const correct = option.dataset.correct === "true";
+
+          if (correct) {
+            option.classList.add("correct");
+
+            score++;
+          } else {
+            option.classList.add("incorrect");
+
+            const question = option.closest(".quiz-question");
+
+            const correctOption = question.querySelector(
+              '[data-correct="true"]',
+            );
+
+            correctOption.classList.add("correct");
+          }
+        });
+      });
+
+      function mostrarPregunta(index) {
+        questions.forEach(function (question, i) {
+          question.classList.toggle("active", i === index);
+        });
+
+        document.getElementById("prevQuestion").style.visibility =
+          index === 0 ? "hidden" : "visible";
+
+        document.getElementById("nextQuestion").textContent =
+          index === questions.length - 1 ? "Finalizar" : "Siguiente →";
+      }
+
+      function nextQuestion() {
+        if (!answered) {
+          alert("Selecciona una respuesta antes de continuar.");
+
+          return;
+        }
+
+        if (currentQuestion < questions.length - 1) {
+          currentQuestion++;
+
+          answered = false;
+
+          mostrarPregunta(currentQuestion);
+        } else {
+          mostrarResultado();
+        }
+      }
+
+      function previousQuestion() {
+        if (currentQuestion > 0) {
+          currentQuestion--;
+
+          answered = true;
+
+          mostrarPregunta(currentQuestion);
+        }
+      }
+
+      function mostrarResultado() {
+        questions.forEach(function (question) {
+          question.style.display = "none";
+        });
+
+        document.querySelector(".quiz-navigation").style.display = "none";
+
+        document.getElementById("quizResult").classList.add("show");
+
+        document.getElementById("score").textContent =
+          score + "/" + questions.length;
+
+        let mensaje = "";
+
+        if (score === 5) {
+          mensaje =
+            "Excelente. Has comprendido los principales requisitos del proceso.";
+        } else if (score >= 3) {
+          mensaje =
+            "Buen resultado. Revisa nuevamente algunos puntos antes de entregar los documentos.";
+        } else {
+          mensaje =
+            "Te recomendamos recorrer nuevamente el OVA y revisar las fechas y requisitos.";
+        }
+
+        document.getElementById("scoreMessage").textContent = mensaje;
+      }
+
+      function reiniciarQuiz() {
+        score = 0;
+
+        currentQuestion = 0;
+
+        answered = false;
+
+        options.forEach(function (option) {
+          option.classList.remove("correct", "incorrect");
+        });
+
+        questions.forEach(function (question) {
+          question.style.display = "";
+        });
+
+        document.querySelector(".quiz-navigation").style.display = "flex";
+
+        document.getElementById("quizResult").classList.remove("show");
+
+        mostrarPregunta(0);
+      }
+
+      /* =====================================================
+       INICIALIZACIÓN
+    ====================================================== */
+
+      mostrarPregunta(0);
+
+      actualizarChecklist();
+    </script>
+  </body>
+</html>
+```
